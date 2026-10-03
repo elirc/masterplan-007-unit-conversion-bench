@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Unit Conversion Bench</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header>
+<div class="eyebrow">Fieldwork / Masterplan M007</div>
+<h1>Unit Conversion Bench</h1>
+<p class="lede">A maker needs trustworthy conversions between millimeters, centimeters and meters.</p>
+</header>
+<main id="main" tabindex="-1">
+<section class="panel">
+<h2>Convert a measurement</h2>
+<form id="conversion" novalidate>
+<label for="value">Length</label>
+<input id="value" type="number" min="0" step="any" value="12.5">
+<label for="from">From</label>
+<select id="from">
+<option value="cm">Centimeters</option>
+<option value="mm">Millimeters</option>
+<option value="m">Meters</option>
+</select>
+<label for="to">To</label>
+<select id="to">
+<option value="mm">Millimeters</option>
+<option value="cm">Centimeters</option>
+<option value="m">Meters</option>
+</select>
+<button>Convert length</button>
+</form>
+<output id="result" aria-live="polite">12.5 cm should become 125 mm. Check your prediction.</output>
+</section>
+<section>
+<h2>A reference you can compute by hand</h2>
+<p>1 m = 100 cm = 1,000 mm. Zero stays zero. Negative lengths are rejected in this workshop.</p>
+<p class="muted">Decimal JavaScript arithmetic is approximate. The core does not round intermediate results.</p>
+</section>
+</main>
+<footer>Fictional local learning project. No account, tracking or external service. <a href="https://github.com/elirc/masterplan-007-unit-conversion-bench">Code and learning guide</a>
+</footer>
+<script type="module" src="app.js">
+</script>
+</body>
+</html>
