@@ -9,3 +9,9 @@ Start with **Add a display precision option**. Allow the UI to choose displayed 
 Acceptance: Changing display precision does not change subsequent arithmetic.
 
 Do not copy an answer before trying. After your first attempt, use [the hints](../docs/06-HINTS-AND-ANSWERS.md), then ask for a review with a concrete diff and observed result.
+
+<!-- expanded-exercises -->
+
+## Fifteen stories are now available
+
+[Original six stories and deeper planning clinics](../docs/05-PRACTICE-STORIES.md) · [Nine additional workshops](../docs/11-NINE-MORE-STORIES.md) · [Independent capstone](../docs/18-INDEPENDENT-CAPSTONE.md). Choose one bounded change and keep your own evidence in the ignored my-journal folder.
