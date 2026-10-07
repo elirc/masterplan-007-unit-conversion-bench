@@ -6,9 +6,9 @@ There are intentionally no complete feature patches here. Use one hint, return t
 
 ## Story 01: Add a display precision option
 
-**Hint 1 — ownership:** Begin from `convertLength`. Allow the UI to choose displayed decimal places while retaining the raw conversion result.
+**Hint 1 — ownership:** Begin from the result line in `public/app.js`. Allow the UI to choose displayed decimal places while retaining the raw conversion result.
 
-**Hint 2 — reasoning:** Revisit the decision “Centralize unit meaning in one table”. Ask yourself: Derive centimeters to meters without looking at the implementation.
+**Hint 2 — reasoning:** Revisit the decision “Avoid unnecessary intermediate overflow”. Ask yourself: Explain what the finite-result check proves and what it does not.
 
 **Answer direction:** A defensible solution demonstrates this observable result: Changing display precision does not change subsequent arithmetic. The exact code is not prescribed. If your change achieves that result by changing an unrelated original rule, revise either the implementation or the story contract explicitly.
 
@@ -16,9 +16,9 @@ There are intentionally no complete feature patches here. Use one hint, return t
 
 ## Story 02: Add kilometers
 
-**Hint 1 — ownership:** Begin from `convertLength`. Extend the unit table and both controls, then add reference examples.
+**Hint 1 — ownership:** Begin from the `millimetersPerUnit` table and both unit selects. Extend the unit table and both controls, then add reference examples.
 
-**Hint 2 — reasoning:** Revisit the decision “Check own properties”. Ask yourself: Explain why a truthy property lookup is weaker than Object.hasOwn here.
+**Hint 2 — reasoning:** Revisit the decision “Centralize unit meaning in one table”. Ask yourself: Derive centimeters to meters without looking at the implementation.
 
 **Answer direction:** A defensible solution demonstrates this observable result: 1km→1000m and an unknown unit rejection both pass. The exact code is not prescribed. If your change achieves that result by changing an unrelated original rule, revise either the implementation or the story contract explicitly.
 
@@ -26,9 +26,9 @@ There are intentionally no complete feature patches here. Use one hint, return t
 
 ## Story 03: Add a swap action
 
-**Hint 1 — ownership:** Begin from `convertLength`. Swap source and destination units while deciding whether to reuse the displayed result.
+**Hint 1 — ownership:** Begin from the submit handler in `public/app.js`. Swap source and destination units while deciding whether to reuse the displayed result.
 
-**Hint 2 — reasoning:** Revisit the decision “Avoid unnecessary intermediate overflow”. Ask yourself: Explain what the finite-result check proves and what it does not.
+**Hint 2 — reasoning:** Revisit the decision “Centralize unit meaning in one table”. Ask yourself: Derive centimeters to meters without looking at the implementation.
 
 **Answer direction:** A defensible solution demonstrates this observable result: Document the choice and handle a blank input without inventing a value. The exact code is not prescribed. If your change achieves that result by changing an unrelated original rule, revise either the implementation or the story contract explicitly.
 
@@ -36,7 +36,7 @@ There are intentionally no complete feature patches here. Use one hint, return t
 
 ## Story 04: Show the conversion factor
 
-**Hint 1 — ownership:** Begin from `convertLength`. Display the ratio used for the chosen unit pair.
+**Hint 1 — ownership:** Begin from the ratio expression in `convertLength`. Display the ratio used for the chosen unit pair.
 
 **Hint 2 — reasoning:** Revisit the decision “Centralize unit meaning in one table”. Ask yourself: Derive centimeters to meters without looking at the implementation.
 
@@ -46,9 +46,9 @@ There are intentionally no complete feature patches here. Use one hint, return t
 
 ## Story 05: Test very small values
 
-**Hint 1 — ownership:** Begin from `convertLength`. Add documented examples near the practical limits of floating-point representation.
+**Hint 1 — ownership:** Begin from `test/core.test.js`. Add documented examples near the practical limits of floating-point representation.
 
-**Hint 2 — reasoning:** Revisit the decision “Check own properties”. Ask yourself: Explain why a truthy property lookup is weaker than Object.hasOwn here.
+**Hint 2 — reasoning:** Revisit the decision “Avoid unnecessary intermediate overflow”. Ask yourself: Explain what the finite-result check proves and what it does not.
 
 **Answer direction:** A defensible solution demonstrates this observable result: Distinguish approximation or underflow from a wrong unit factor. The exact code is not prescribed. If your change achieves that result by changing an unrelated original rule, revise either the implementation or the story contract explicitly.
 
@@ -56,9 +56,9 @@ There are intentionally no complete feature patches here. Use one hint, return t
 
 ## Story 06: Extract input parsing
 
-**Hint 1 — ownership:** Begin from `convertLength`. Create a small UI parsing function with explicit blank, invalid and zero cases.
+**Hint 1 — ownership:** Begin from `numberFromInput`, which already exists inside `public/app.js` (the open work is making it testable outside the browser). Create a small UI parsing function with explicit blank, invalid and zero cases.
 
-**Hint 2 — reasoning:** Revisit the decision “Avoid unnecessary intermediate overflow”. Ask yourself: Explain what the finite-result check proves and what it does not.
+**Hint 2 — reasoning:** Revisit the decision “Check own properties”. Ask yourself: Explain why a truthy property lookup is weaker than Object.hasOwn here.
 
 **Answer direction:** A defensible solution demonstrates this observable result: The core still accepts numbers only and can be used independently. The exact code is not prescribed. If your change achieves that result by changing an unrelated original rule, revise either the implementation or the story contract explicitly.
 

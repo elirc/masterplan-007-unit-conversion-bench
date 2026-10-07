@@ -6,8 +6,6 @@ These are new exercises beyond the finished reference. No story is marked comple
 
 ## Story 01: Add a display precision option
 
-**User need:** As a learner or user of Unit Conversion Bench, I want this small improvement so the behavior is easier to use, explain or verify.
-
 **Feature boundary:** Allow the UI to choose displayed decimal places while retaining the raw conversion result.
 
 **Implementation plan:**
@@ -26,8 +24,6 @@ These are new exercises beyond the finished reference. No story is marked comple
 **Stretch only after completion:** add one adversarial example that a plausible but incorrect solution would fail. Explain why that example is more informative than adding three ordinary examples.
 
 ## Story 02: Add kilometers
-
-**User need:** As a learner or user of Unit Conversion Bench, I want this small improvement so the behavior is easier to use, explain or verify.
 
 **Feature boundary:** Extend the unit table and both controls, then add reference examples.
 
@@ -48,8 +44,6 @@ These are new exercises beyond the finished reference. No story is marked comple
 
 ## Story 03: Add a swap action
 
-**User need:** As a learner or user of Unit Conversion Bench, I want this small improvement so the behavior is easier to use, explain or verify.
-
 **Feature boundary:** Swap source and destination units while deciding whether to reuse the displayed result.
 
 **Implementation plan:**
@@ -68,8 +62,6 @@ These are new exercises beyond the finished reference. No story is marked comple
 **Stretch only after completion:** add one adversarial example that a plausible but incorrect solution would fail. Explain why that example is more informative than adding three ordinary examples.
 
 ## Story 04: Show the conversion factor
-
-**User need:** As a learner or user of Unit Conversion Bench, I want this small improvement so the behavior is easier to use, explain or verify.
 
 **Feature boundary:** Display the ratio used for the chosen unit pair.
 
@@ -90,8 +82,6 @@ These are new exercises beyond the finished reference. No story is marked comple
 
 ## Story 05: Test very small values
 
-**User need:** As a learner or user of Unit Conversion Bench, I want this small improvement so the behavior is easier to use, explain or verify.
-
 **Feature boundary:** Add documented examples near the practical limits of floating-point representation.
 
 **Implementation plan:**
@@ -111,9 +101,7 @@ These are new exercises beyond the finished reference. No story is marked comple
 
 ## Story 06: Extract input parsing
 
-**User need:** As a learner or user of Unit Conversion Bench, I want this small improvement so the behavior is easier to use, explain or verify.
-
-**Feature boundary:** Create a small UI parsing function with explicit blank, invalid and zero cases.
+**Feature boundary:** Create a small UI parsing function with explicit blank, invalid and zero cases. `public/app.js` already has a private `numberFromInput` that rejects blank and non-finite text; the work is to make that step importable and tested on its own, including zero.
 
 **Implementation plan:**
 

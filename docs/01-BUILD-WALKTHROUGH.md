@@ -20,23 +20,23 @@ Write 1m = 100cm = 1000mm and cancel units on paper. To convert 12.5cm into mill
 
 Negative values are rejected because this workshop models a nonnegative length, not a signed displacement. Zero is a useful measurement and should not be rejected with a generic falsy check. The function also rejects strings even when they look numeric, because parsing belongs to its caller.
 
-**Pause and produce evidence:** 1000 mm → m. Predict the outcome, then compare it with the reference. In your notes, distinguish what the code says should happen from what you actually observed.
+**Pause and produce evidence:** -1 cm → mm. Predict the outcome, then compare it with the reference. In your notes, distinguish what the code says should happen from what you actually observed.
 
 ## Step 3: Inspect arithmetic limits
 
 JavaScript numbers are not arbitrary-precision decimal measurements. The implementation avoids a needless huge intermediate by multiplying by the unit ratio. It rejects a nonfinite result, but it does not promise exact decimal arithmetic for every representable number. Tests use tolerance for round trips where strict equality would test binary representation rather than the intended conversion.
 
-**Pause and produce evidence:** 0 m → cm. Predict the outcome, then compare it with the reference. In your notes, distinguish what the code says should happen from what you actually observed.
+**Pause and produce evidence:** MAX_VALUE m → mm. Predict the outcome, then compare it with the reference. In your notes, distinguish what the code says should happen from what you actually observed.
 
 ## Step 4: Keep formatting at the edge
 
 The UI prints the returned result without modifying the underlying arithmetic. If you later want a fixed number of decimal places, make that a display choice and preserve the raw result for further calculations. Rounding after each conversion can cause repeated conversions to drift much more than necessary.
 
-**Pause and produce evidence:** -1 cm → mm. Predict the outcome, then compare it with the reference. In your notes, distinguish what the code says should happen from what you actually observed.
+**Pause and produce evidence:** 1000 mm → m. Predict the outcome, then compare it with the reference. In your notes, distinguish what the code says should happen from what you actually observed.
 
 ## Keep the implementation reviewable
 
-A useful commit has one understandable reason to exist. Separate the initial working slice, the checks that expose its important boundaries, and the teaching material that explains it. The published commits in this repository were assembled from verified working files; they are real commits, not fabricated evidence of a long historical development process. M001 additionally contains the actual two-file baseline and a separate opening-time correction.
+A useful commit has one understandable reason to exist. Separate the initial working slice, the checks that expose its important boundaries, and the teaching material that explains it. The published commits in this repository were assembled from verified working files; they are real commits, not fabricated evidence of a long historical development process.
 
 For your own variation, commit at a point where the behavior and evidence agree. Describe the trigger, the resulting behavior and the check in the commit message or review note. Avoid mixing a rule change with unrelated formatting because it makes the learning decision harder to see.
 

@@ -18,7 +18,7 @@
 
 Start at [public/core.js](../public/core.js) and locate `convertLength`. Use this trace as a map: 12.5 cm → validate numeric input and own unit keys → ratio 10/1 → multiply 12.5 by 10 → return 125 → UI displays 12.5 cm = 125 mm.
 
-The tooling is intentionally separate from the product concept. You can study the local server or CI after the main rule is clear. Neither an HTTP preview server nor a workflow configuration should become a prerequisite for understanding an inline-block box or a small pure function.
+The tooling is intentionally separate from the product concept. You can study the local server or CI after the main rule is clear. Neither an HTTP preview server nor a workflow configuration should become a prerequisite for understanding a small pure function.
 
 ## Decision: Centralize unit meaning in one table
 
@@ -46,9 +46,9 @@ Converting a huge value into millimeters and then back can overflow even when th
 
 ## Change boundaries
 
-A small change should begin in the file that owns its meaning. Change domain rules in the core, wording and interaction in the browser adapter, and layout in the relevant CSS rule. For the static references, semantic information belongs in HTML before styling. For the Git reference, the staged snapshot boundary belongs in the helper rather than being guessed from editor state.
+A small change should begin in the file that owns its meaning. Change domain rules in the core (`public/core.js`), wording and interaction in the browser adapter (`public/app.js`), and layout in the relevant CSS rule.
 
-If a story crosses two files, say why. A new unit, weather option or UI station may require a contract, a control and tests to change together. That is a coherent feature boundary, not permission to rewrite unrelated parts of the project.
+If a story crosses two files, say why. A new option may require the core contract, a control and tests to change together. That is a coherent feature boundary, not permission to rewrite unrelated parts of the project.
 
 ## Deliberate limits
 
